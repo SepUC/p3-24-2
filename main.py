@@ -21,7 +21,7 @@ carrito = []
 #menu principal
 while (True):
 
-    print("INGRESE ACCIÓN DESEADA:\n1-Agregar comida al carrito.\n2-Mirar tu carrito.\n3- Comprar")
+    print("INGRESE ACCIÓN DESEADA:\n1-Agregar comida al carrito.\n2-Mirar tu carrito.\n3- Comprar\n4- Eliminar cosas del carro\n 5- Búsqueda por nombre\n0 - Salir")
 
     user_in= int(input(">> "))
     ...
@@ -37,3 +37,12 @@ while (True):
     
     elif user_in == 3:
         comprar(carrito)
+    
+    elif user_in == 4:
+        quitar_carro(carrito)
+    
+    elif user_in == 5:
+        buscar_nombre(menu)
+    
+    elif user_in == 0:
+        break

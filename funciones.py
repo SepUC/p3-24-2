@@ -83,11 +83,40 @@ def agregar_carrito (items:list, carrito:list):
     return carrito
 
 def mostrar_carrito (carrito:list):
-    print("Esto es lo que tiene actualmente en el carrito: ")
     contador = 0
     if len(carrito) > 0:
+        print("Esto es lo que tiene actualmente en el carrito: ")
         for i in carrito:
             contador += 1
             print(contador, '-', i['nombre'], 'con valor de', i['precio'])
     else:
         print("No tiene elementos seleccionados en su carrito. ")
+
+def quitar_carro(carrito:list):
+    print("Seleccione con un número el elemento que quiera eliminar del carrito: ")
+    if len(carrito) > 0: 
+        contador = 0
+        for i in carrito:
+                    contador += 1
+                    print(contador, '-', i['nombre'], 'con valor de', i['precio'])
+
+        try:
+            user_in = int(input(">> "))
+        except:
+            print("NÚMERO NO VÁLIDO")
+            #continue
+        if user_in in range((len(carrito))+1):
+            carrito.pop(user_in-1)
+            return carrito
+        else:
+            print("Numero fuera de rango. ")
+    else:
+        print("No tiene elementos en el carrito.")
+
+def buscar_nombre(menu:list):
+    contador = 0
+    nombre = input(">> ")
+    for i in menu:
+        if nombre.lower() in i['nombre']:
+            contador+=1
+            print(contador, "-", i["nombre"])
